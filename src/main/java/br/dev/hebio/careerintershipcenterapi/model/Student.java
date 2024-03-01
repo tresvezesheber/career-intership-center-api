@@ -1,6 +1,5 @@
 package br.dev.hebio.careerintershipcenterapi.model;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.validation.constraints.NotEmpty;
@@ -17,11 +16,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @PrimaryKeyJoinColumn(name = "id")
-public class Student extends User{
-
-    @NotEmpty
-    @Column(unique = true)
-    private String registration;
+public class Student extends User {
 
     @NotEmpty
     private String course;

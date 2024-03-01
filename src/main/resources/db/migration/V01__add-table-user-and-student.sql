@@ -1,5 +1,6 @@
 CREATE TABLE api_users (
   id BIGINT NOT NULL AUTO_INCREMENT,
+  registration VARCHAR(30) NOT NULL UNIQUE,
   name VARCHAR(150) NOT NULL,
   cpf VARCHAR(11) NOT NULL UNIQUE,
   email VARCHAR(80) NOT NULL UNIQUE,
@@ -13,7 +14,6 @@ CREATE TABLE api_users (
 
 CREATE TABLE students (
     id BIGINT NOT NULL,
-    registration VARCHAR(30) NOT NULL UNIQUE,
     course VARCHAR(100) NOT NULL,
     admission_date DATE NOT NULL,
     graduation_date DATE,

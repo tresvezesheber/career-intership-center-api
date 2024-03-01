@@ -28,6 +28,10 @@ public class User {
 
     @NotEmpty
     @Column(unique = true)
+    private String registration;
+
+    @NotEmpty
+    @Column(unique = true)
     private String cpf;
 
     @NotEmpty
