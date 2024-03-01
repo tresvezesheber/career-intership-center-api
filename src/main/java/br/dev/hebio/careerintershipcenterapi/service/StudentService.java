@@ -6,6 +6,9 @@ import br.dev.hebio.careerintershipcenterapi.model.student.StudentUpdate;
 import br.dev.hebio.careerintershipcenterapi.model.student.StudentView;
 import br.dev.hebio.careerintershipcenterapi.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,8 +19,9 @@ public class StudentService {
 
     private final StudentRepository studentRepository;
 
-    public List<StudentDetails> list() {
-        return studentRepository.findAll().stream().map(StudentDetails::new).toList();
+    public Page<StudentDetails> getPaginatedList(Pageable pageable) {
+        List<StudentDetails> students = studentRepository.findAll(pageable).map(StudentDetails::new).getContent();
+        return new PageImpl<>(students, pageable, students.size());
     }
 
     public StudentDetails getById(Long id) {
@@ -61,7 +65,7 @@ public class StudentService {
         studentRepository.save(student);
     }
 
-    public void deleteStudent(Long id) {
+    public void delete(Long id) {
         Student student = findStudentById(id);
 
         studentRepository.delete(student);
