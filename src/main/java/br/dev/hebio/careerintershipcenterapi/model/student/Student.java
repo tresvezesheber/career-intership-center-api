@@ -1,5 +1,6 @@
-package br.dev.hebio.careerintershipcenterapi.model;
+package br.dev.hebio.careerintershipcenterapi.model.student;
 
+import br.dev.hebio.careerintershipcenterapi.model.User;
 import jakarta.persistence.Entity;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.validation.constraints.NotEmpty;
@@ -27,4 +28,12 @@ public class Student extends User {
     private LocalDateTime graduationDate;
 
     private String situation;
+
+    public Student(StudentView studentView) {
+        super(studentView.name(), studentView.registration(), studentView.cpf(), studentView.email(), studentView.password(), "ROLE_STUDENT");
+        this.course = studentView.course();
+        this.admissionDate = studentView.admissionDate();
+        this.graduationDate = studentView.graduationDate();
+        this.situation = studentView.situation();
+    }
 }

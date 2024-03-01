@@ -50,4 +50,13 @@ public class User {
 
     @UpdateTimestamp
     private LocalDateTime updatedAt;
+
+    public User(String name, String registration, String cpf, String email, String password, String role) {
+        this.name = name;
+        this.registration = registration;
+        this.cpf = cpf;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
 }
