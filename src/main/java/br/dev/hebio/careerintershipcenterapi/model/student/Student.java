@@ -30,7 +30,7 @@ public class Student extends User {
     private String situation;
 
     public Student(StudentView studentView) {
-        super(studentView.name(), studentView.registration(), studentView.cpf(), studentView.email(), studentView.password(), "ROLE_STUDENT");
+        super(studentView.name(), studentView.registration(), studentView.cpf(), studentView.email(), studentView.cpf(), "ROLE_STUDENT");
         this.course = studentView.course();
         this.admissionDate = studentView.admissionDate();
         this.graduationDate = studentView.graduationDate();
